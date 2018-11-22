@@ -15,6 +15,12 @@ body {
 span {
     font-family: Arial;
     align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    width: 10px;
 }
 
 hr {
@@ -66,7 +72,6 @@ footer {
 .nav-item, .navbar-nav {
     margin-left: auto;
     margin-right: auto;
-
     height: 55px;
     width: 80px;
     color: rgb(255, 255, 255);
@@ -94,4 +99,26 @@ footer {
     line-height: 50px;
     text-align: center;
     background-color: #DC0055;
+}
+
+.row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.title {
+    padding-left: 15px;
+    text-align: center;
+    color: rgb(77, 77, 77);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.field {
+    padding-left: 15px;
+}
+
+input[type=radio] {
+    height: 20px;
+    width: 50px;
 }
