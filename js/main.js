@@ -37,4 +37,44 @@ function page2() {
         }
         options = !options;
     }
+
+    document.getElementsByClassName('head')[0].onclick = function() {
+        if (document.getElementsByClassName('list')[0].style.display != 'none')
+            document.getElementsByClassName('list')[0].style.display = 'none';
+        else
+            document.getElementsByClassName('list')[0].style.display = 'block';
+    }
+
+    document.getElementsByClassName('head')[1].onclick = function() {
+        if (document.getElementsByClassName('list')[1].style.display != 'none')
+            document.getElementsByClassName('list')[1].style.display = 'none';
+        else
+            document.getElementsByClassName('list')[1].style.display = 'block';
+    }
+
+    document.getElementsByClassName('head')[2].onclick = function() {
+        if (document.getElementsByClassName('list')[2].style.display != 'none')
+            document.getElementsByClassName('list')[2].style.display = 'none';
+        else
+            document.getElementsByClassName('list')[2].style.display = 'block';
+    }
+
+    document.getElementsByClassName('head')[3].onclick = function() {
+        if (document.getElementsByClassName('list')[3].style.display != 'none')
+            document.getElementsByClassName('list')[3].style.display = 'none';
+        else
+            document.getElementsByClassName('list')[3].style.display = 'block';
+    }
+
+    for (var i = 0; i < document.getElementsByClassName('item').length; i++) {
+        document.getElementsByClassName('item')[i].onclick = function() {
+            document.getElementsByClassName('shadow')[0].style.display = 'block';
+            document.getElementsByClassName('extra')[0].style.display = 'block';
+
+            document.getElementsByClassName('shadow')[0].onclick = function() {
+                document.getElementsByClassName('shadow')[0].style.display = 'none';
+                document.getElementsByClassName('extra')[0].style.display = 'none';
+            }
+        }
+    }
 }

@@ -98,7 +98,7 @@ footer {
 }
 
 .head {
-    color: #DC0055;
+    color: #FF8900;
     font-weight: bold;
 }
 
@@ -123,8 +123,62 @@ input[type=radio] {
     font-size: 18px;
 }
 
+.extra {
+    font-size: 18px;
+    border-radius: 3px;
+    background-color: rgb(255, 1, 1);
+    height: 125px;
+    position: absolute;
+    left: 12.5%;
+    top: 40%;
+    /* display: none; */
+}
+
+#food_search {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    z-index: 1;
+}
+
+#food_weight {
+    z-index: 1;
+    width: 115px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#weight_label {
+    z-index: 1;
+    /* margin-left: 45px;
+    margin-right: 10px; */
+}
+
+.option {
+    font-weight: bold;
+}
+
+.button {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 11px;
+    padding-left: 25px;
+    height: 50px;
+    width: 130px;
+    background-color: #fff;
+    z-index: 25;
+}
+
+.shadow {
+    /* display: none; */
+    top: 0%;
+    height: 1000px;
+    width: 1000px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+}
 .circle {
-    position: fixed;
+    position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -136,7 +190,6 @@ input[type=radio] {
     background-position: center;
     background-size: cover;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.301);
-    transition: 1s;
 }
 
 .option_label {
@@ -152,22 +205,22 @@ input[type=radio] {
 
 #add {
     top: 90%;
-    background-color: #FF8900;
-}
-
-#close {
-    top: 90%;
-    background-color: #FF8900;
-    transform: rotate(45deg);
+    background-color: #DC0055;
 }
 
 #food {
+    left: 302.5px;
+    width: 45px;
+    height: 45px;
     background-image: url('../resources/food.png');
     top: 80%;
     display: none;
 }
 
 #sport {
+    left: 302.5px;
+    width: 45px;
+    height: 45px;
     background-image: url('../resources/sport.png');
     top: 70%;
     display: none;
@@ -175,7 +228,7 @@ input[type=radio] {
 
 #food_label {
     left: 158px;
-    top: 82%;
+    top: 81.5%;
     font-size: 16px;
     position: absolute;
     display: none;
@@ -183,7 +236,7 @@ input[type=radio] {
 
 #sport_label {
     left: 120px;
-    top: 72%;
+    top: 71.5%;
     font-size: 16px;
     position: absolute;
     display: none;
