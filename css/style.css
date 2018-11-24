@@ -58,9 +58,6 @@ footer {
     background-color: #DC0055;
 }
 
-.container {
-    height: 70px;
-}
 
 .navbar {
     background-color: #007633;
@@ -89,21 +86,20 @@ footer {
 }
 
 .row {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .title {
-    /* padding-left: 15px;
-    padding-right: 15px; */
     text-align: center;
     color: rgb(77, 77, 77);
     font-weight: bold;
     font-size: 18px;
 }
 
-.field {
-    /* padding-left: 15px; */
+.head {
+    color: #DC0055;
+    font-weight: bold;
 }
 
 input[type=radio] {
@@ -117,6 +113,14 @@ input[type=radio] {
 
 #page2 {
     display: block;
+}
+
+.header {
+    font-size: 12px;
+}
+
+.totals {
+    font-size: 18px;
 }
 
 .circle {
@@ -141,6 +145,11 @@ input[type=radio] {
     background-color: #000000a6;
     padding: 5px 10px;
 }
+
+.navigator {
+    position: absolute;
+}
+
 #add {
     top: 90%;
     background-color: #FF8900;
