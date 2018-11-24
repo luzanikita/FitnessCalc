@@ -108,11 +108,11 @@ input[type=radio] {
 }
 
 #page1 {
-    display: none;
+    display: block;
 }
 
 #page2 {
-    display: block;
+    display: none;
 }
 
 .header {
@@ -123,15 +123,24 @@ input[type=radio] {
     font-size: 18px;
 }
 
+.shadow {
+    display: none;
+    top: 0%;
+    height: 1000px;
+    width: 1000px;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .extra {
     font-size: 18px;
     border-radius: 3px;
-    background-color: rgb(255, 1, 1);
+    background-color: rgb(255, 255, 255);
     height: 125px;
     position: absolute;
     left: 12.5%;
     top: 40%;
-    /* display: none; */
+    display: none;
 }
 
 #food_search {
@@ -169,14 +178,6 @@ input[type=radio] {
     z-index: 25;
 }
 
-.shadow {
-    /* display: none; */
-    top: 0%;
-    height: 1000px;
-    width: 1000px;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.5);
-}
 .circle {
     position: absolute;
     width: 50px;
