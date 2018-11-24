@@ -111,6 +111,10 @@ input[type=radio] {
     width: 50px;
 }
 
+#page1 {
+    display: none;
+}
+
 #page2 {
     display: block;
 }
@@ -127,10 +131,16 @@ input[type=radio] {
     left: 300px;
     background-position: center;
     background-size: cover;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.301);
     transition: 1s;
 }
 
+.option_label {
+    color: #fff;
+    border-radius: 3px;
+    background-color: #000000a6;
+    padding: 5px 10px;
+}
 #add {
     top: 90%;
     background-color: #FF8900;
@@ -151,5 +161,21 @@ input[type=radio] {
 #sport {
     background-image: url('../resources/sport.png');
     top: 70%;
+    display: none;
+}
+
+#food_label {
+    left: 158px;
+    top: 82%;
+    font-size: 16px;
+    position: absolute;
+    display: none;
+}
+
+#sport_label {
+    left: 120px;
+    top: 72%;
+    font-size: 16px;
+    position: absolute;
     display: none;
 }
