@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    transition: 0.25s;
 }
 
 html {
@@ -87,27 +88,14 @@ footer {
     font-weight: bold;
 }
 
-.plus {
-    position: fixed;
-    left: 300px;
-    top: 90%; 
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 50px;
-    color: #fff;
-    line-height: 50px;
-    text-align: center;
-    background-color: #DC0055;
-}
-
 .row {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 .title {
-    padding-left: 15px;
+    /* padding-left: 15px;
+    padding-right: 15px; */
     text-align: center;
     color: rgb(77, 77, 77);
     font-weight: bold;
@@ -115,10 +103,53 @@ footer {
 }
 
 .field {
-    padding-left: 15px;
+    /* padding-left: 15px; */
 }
 
 input[type=radio] {
     height: 20px;
     width: 50px;
+}
+
+#page2 {
+    display: block;
+}
+
+.circle {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 50px;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+    left: 300px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.301);
+    transition: 1s;
+}
+
+#add {
+    top: 90%;
+    background-color: #FF8900;
+}
+
+#close {
+    top: 90%;
+    background-color: #FF8900;
+    transform: rotate(45deg);
+}
+
+#food {
+    background-image: url('../resources/food.png');
+    top: 80%;
+    display: none;
+}
+
+#sport {
+    background-image: url('../resources/sport.png');
+    top: 70%;
+    display: none;
 }

@@ -48,61 +48,71 @@
     </header>
 
     <main>
-        <div class='row'>
-            <div class='col-1'></div>
-            <div class='col-3'>
-                <span class='title'>Рост</span>
-            </div>
-            <div class='col-3'>
-                <span class='title'>Вес</span>
-            </div>
-            <div class='col-3'>
-                <span class='title'>Возраст</span>
-            </div>
-            
-            <div class='col-2'></div>
-            <div class='col-1'></div>
-            <div class='col-3'>
-                <div class='field'>
-                    <input id='height' class='w3-input' type='number' min='100' max='300'>
+        <div class='container' id='page1'>
+            <div class='row'>
+                <div class='col-1'></div>
+                <div class='col-3'>
+                    <span class='title'>Рост</span>
+                </div>
+                <div class='col-3'>
+                    <span class='title'>Вес</span>
+                </div>
+                <div class='col-5'>
+                    <span class='title'>Возраст</span>
+                </div>
+                
+                
+                <div class='col-1'></div>
+                <div class='col-3'>
+                    <div class='field'>
+                        <input id='height' class='w3-input' type='number' min='100' max='300'>
+                    </div>
+                </div>
+                <div class='col-3'>
+                    <div class='field'>
+                        <input id='weight' class='w3-input' type='number' min='30' max='200'>
+                    </div>
+                </div>
+                <div class='col-3'>
+                    <div class='field'>
+                        <input id='age' class='w3-input' type='number' min='3' max='120'>
+                    </div>
                 </div>
             </div>
-            <div class='col-3'>
-                <div class='field'>
-                    <input id='weight' class='w3-input' type='number' min='30' max='200'>
+        
+            <div class='row'>
+                <div class='col-1'></div>
+                <div class='col-11'>
+                    <span class='title'>Пол</span>
+                </div>
+                
+                <div class='col-1'></div>
+                <div class='col-5'>
+                    <input id='male' type="radio" name="gender" value="male" checked>
+                    <label for='male'>Мужской</label>
+                </div>
+                <div class='col-5'>
+                    <input id='female' type="radio" name="gender" value="female">
+                    <label for='female'>Женский</label>
                 </div>
             </div>
-            <div class='col-3'>
-                <div class='field'>
-                    <input id='age' class='w3-input' type='number' min='3' max='120'>
+
+            <div class='row'>
+                <div class='col-1'></div>
+                <div class='col-11'>
+                    <span class='title'>Физическая активность</span>
                 </div>
             </div>
         </div>
-        <div class='row'>
-            <div class='col-1'></div>
-            <div class='col-11'>
-                <span class='title'>Пол</span>
-            </div>
-            
-            <div class='col-1'></div>
-            <div class='col-5'>
-                <input id='male' type="radio" name="gender" value="male" checked>
-                <label for='male'>Мужской</label>
-            </div>
-            <div class='col-5'>
-                <input id='female' type="radio" name="gender" value="female">
-                <label for='female'>Женский</label>
-            </div>
-        </div>
-        <div class='row'>
-            <div class='col-1'></div>
-            <div class='col-11'>
-                <span class='title'>Физическая активность</span>
-            </div>
+        
+        <div class='container' id='page2'>  
+            <div class='circle' id='sport'></div>
+            <div class='circle' id='food'></div>
+            <div class='circle' id='add'><div id='plus'>+</div></div>
         </div>
     </main>
     
-    <footer class='plus'>+</footer>
+    
 
     <script src='js/main.js'></script>
 
