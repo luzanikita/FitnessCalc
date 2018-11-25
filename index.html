@@ -175,108 +175,36 @@
 
         </div>
         
-        <div class='container' id='page2'>  
-            <div class='container'>
-                <div class='row'>
-                    <div class='col-3 border-right'>
-                        <span class='header'>Норма кКал</span>
-                    </div>
-                    <div class='col-3 border-right'>
-                        <span class='header'>Получено кКал</span>
-                    </div>
-                    <div class='col-3 border-right'>
-                        <span class='header'>Потрачено кКал</span>
-                    </div>
-                    <div class='col-3'>
-                        <span class='header'>Осталось кКал</span>
-                    </div>
+        <div class='container' id='page2'>
+        <div class='container'>
+            <div class='row'>
+                <div class='col-3 border-right'>
+                    <span class='header'>Норма кКал</span>
+                </div>
+                <div class='col-3 border-right'>
+                    <span class='header'>Получено кКал</span>
+                </div>
+                <div class='col-3 border-right'>
+                    <span class='header'>Потрачено кКал</span>
+                </div>
+                <div class='col-3'>
+                    <span class='header'>Осталось кКал</span>
+                </div>
 
-                    <div class='col-3 border-right'>
-                        <span class='totals'>1111</span>
-                    </div>
-                    <div class='col-3 border-right'>
-                        <span class='totals'>1111</span>
-                    </div>
-                    <div class='col-3 border-right'>
-                        <span class='totals'>1111</span>
-                    </div>
-                    <div class='col-3'>
-                        <span class='totals'>1111</span>
-                    </div>
+                <div class='col-3 border-right'>
+                    <span class='totals'>1111</span>
+                </div>
+                <div class='col-3 border-right'>
+                    <span class='totals'>1111</span>
+                </div>
+                <div class='col-3 border-right'>
+                    <span class='totals'>1111</span>
+                </div>
+                <div class='col-3'>
+                    <span class='totals'>1111</span>
                 </div>
             </div>
-            <div class='period'>
-                <div class='row head border-bottom'>
-                    <div class='col-8'>
-                        <span>Завтрак</span>
-                    </div>
-                    <div class='col-4'>
-                        <span class='float-right'>0 кКал</span>
-                    </div>
-                </div>
-                <div class='list'>
-                    
-                </div>
-            </div>
-            <div class='period'>
-                <div class='row head border-bottom'>
-                    <div class='col-8'>
-                        <span>Обед</span>
-                    </div>
-                    <div class='col-4'>
-                        <span class='float-right'>0 кКал</span>
-                    </div>
-                </div>
-                <div class='list'>
-                        
-                </div>
-            </div>
-            <div class='period'>
-                <div class='row head border-bottom'>
-                    <div class='col-8'>
-                        <span>Ужин</span>
-                    </div>
-                    <div class='col-4'>
-                        <span class='float-right'>0 кКал</span>
-                    </div>
-                </div>
-                <div class='list'>
-                        
-                </div>
-            </div>
-            <div class='period'>
-                <div class='row head border-bottom'>
-                    <div class='col-8'>
-                        <span>Нагрузки</span>
-                    </div>
-                    <div class='col-4'>
-                        <span class='float-right'>-225 кКал</span>
-                    </div>
-                </div>
-                <div class='list'>
-                        
-                </div>
-            </div>
-
-            <div id='empty'>
-                <div class='container' id='empty-list'>
-                    <span>Здесь будут отображаться введенные вами продукты и физические нагрузки</span>
-                </div>
-                <div class='container' id='empty-hint'>
-                    <span>Нажмите, чтобы добавить</span>
-                    <span>&nbsp</span>
-                    <i class='glyphicon glyphicon-arrow-right'></i>
-                </div>
-            </div>
-
-            <div id='sport_label'><span class='option_label'>Добавить нагрузку</span></div>
-            <div class='circle' id='sport'></div>
-            <div id='food_label'><span class='option_label'>Добавить еду</span></div>
-            <div class='circle' id='food'></div>
-            <div class='circle' id='add'><div id='plus'>+</div></div>
         </div>
-
-        <div id='shadow'></div>
 
         <div class='container extra w-75' id='menu'>
             <div class='row border-bottom'>
@@ -306,9 +234,9 @@
 
         <div class='container extra w-75' id='add_food'>
             
-            <div class="alert alert-danger">
+            <div class="alert alert-danger" id='add_food_error'>
                 <strong>Ошибка!</strong>
-                <span>dsfssdfdffdfdfdfdfdsfsdfdsfdsd</span>
+                <span></span>
             </div>
 
             <span><b>Добавление еды</b></span>
@@ -356,7 +284,198 @@
             </div>
         </div>
 
-        <div class='container extra w-75' id='add_sport'></div>
+        <div class='container extra w-75' id='add_sport'>
+            <span><b>Добавление физической нагрузки</b></span>
+            <div class='row'>
+                <div class='col-12'>
+                    <span>&nbsp</span>
+                    <span class='input-label'>Название</span>
+                </div>
+                <div class='col-12'>
+                    <span>&nbsp</span>
+                    <input id='sport_search' list="sports" name="sports" placeholder='Выберите название'>
+                    <datalist id="sports">
+                        <option value="Бег">
+                        <option value="Большой теннис">
+                        <option value="Волейбол">        
+                        <option value="Футбол">               
+                    </datalist>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-12'>
+                    <span>&nbsp</span>
+                    <span class='input-label'>Длительность тренировки</span>
+                </div>
+                <div class='col-12'>
+                    <span>&nbsp</span>
+                    <input id='sport_time' type='number' min='0' max='5000' step='10' placeholder='Время (минуты)'>
+                </div>
+            </div>
+            <div class='row'>
+                <div class='col-4'></div>
+                <div class='col-4' id='sport-cancel'>
+                    <span>Отмена</span>
+                </div>
+                <div class='col-4' id='sport-ok'>
+                    <span>OK</span>
+                </div>
+            </div>
+        </div>
+    
+            <div class='container extra w-75' id='edit_food'>
+                
+                <div class="alert alert-danger" id='edit_food_error'>
+                    <strong>Ошибка!</strong>
+                    <span></span>
+                </div>
+    
+                <span><b>Изменение еды</b></span>
+                <div class='row'>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <span class='input-label'>Название</span>
+                    </div>
+                    <input id='edit_food_search' list="foods" name="foods" placeholder='Выберите название'>
+                    <datalist id="foods">
+                        <option value="Банан">
+                        <option value="Гречневая каша">
+                        <option value="Куриное филе">        
+                        <option value="Яблоко">               
+                    </datalist>
+                </div>
+                <div class='row'>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <span class='input-label'>Вес</span>
+                    </div>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <input id='edit_food_weight' type='number' min='0' max='5000' step='10' placeholder="Вес (г)">
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-4'></div>
+                    <div class='col-4' id='edit-add-cancel'>
+                        <span>Отмена</span>
+                    </div>
+                    <div class='col-4' id='edit-add-ok'>
+                        <span>OK</span>
+                    </div>
+                </div>
+            </div>
+    
+            <div class='container extra w-75' id='edit_sport'>
+                <span><b>Добавление физической нагрузки</b></span>
+                <div class='row'>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <span class='input-label'>Название</span>
+                    </div>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <input id='edit_sport_search' list="sports" name="sports" placeholder='Выберите название'>
+                        <datalist id="sports">
+                            <option value="Бег">
+                            <option value="Большой теннис">
+                            <option value="Волейбол">        
+                            <option value="Футбол">               
+                        </datalist>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <span class='input-label'>Длительность тренировки</span>
+                    </div>
+                    <div class='col-12'>
+                        <span>&nbsp</span>
+                        <input id='edit_sport_time' type='number' min='0' max='5000' step='10' placeholder='Время (минуты)'>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='col-4'></div>
+                    <div class='col-4' id='edit-sport-cancel'>
+                        <span>Отмена</span>
+                    </div>
+                    <div class='col-4' id='edit-sport-ok'>
+                        <span>OK</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class='period'>
+                <div class='row head border-bottom'>
+                    <div class='col-8'>
+                        <span>Завтрак</span>
+                    </div>
+                    <div class='col-4'>
+                        <span class='float-right'>0 кКал</span>
+                    </div>
+                </div>
+                <div class='list'>
+                    
+                </div>
+            </div>
+            <div class='period'>
+                <div class='row head border-bottom'>
+                    <div class='col-8'>
+                        <span>Обед</span>
+                    </div>
+                    <div class='col-4'>
+                        <span class='float-right'>0 кКал</span>
+                    </div>
+                </div>
+                <div class='list'>
+                        
+                </div>
+            </div>
+            <div class='period'>
+                <div class='row head border-bottom'>
+                    <div class='col-8'>
+                        <span>Ужин</span>
+                    </div>
+                    <div class='col-4'>
+                        <span class='float-right'>0 кКал</span>
+                    </div>
+                </div>
+                <div class='list'>
+                        
+                </div>
+            </div>
+            <div class='period'>
+                <div class='row head border-bottom'>
+                    <div class='col-8'>
+                        <span>Нагрузки</span>
+                    </div>
+                    <div class='col-4'>
+                        <span class='float-right'>0 кКал</span>
+                    </div>
+                </div>
+                <div class='list'>
+                        
+                </div>
+            </div>
+
+            <div id='empty'>
+                <div class='container' id='empty-list'>
+                    <span>Здесь будут отображаться введенные вами продукты и физические нагрузки</span>
+                </div>
+                <div class='container' id='empty-hint'>
+                    <span>Нажмите, чтобы добавить</span>
+                    <span>&nbsp</span>
+                    <i class='glyphicon glyphicon-arrow-right'></i>
+                </div>
+            </div>
+
+            <div id='shadow'></div>
+
+            <div id='sport_label'><span class='option_label'>Добавить нагрузку</span></div>
+            <div class='circle' id='sport'></div>
+            <div id='food_label'><span class='option_label'>Добавить еду</span></div>
+            <div class='circle' id='food'></div>
+            <div class='circle' id='add'><div id='plus'>+</div></div>
+        </div>
     </main>
     
     

@@ -128,23 +128,28 @@ input[type=radio] {
 }
 
 #shadow {
+    z-index: 1;
     display: none;
     top: 0%;
-    height: 1000px;
-    width: 1000px;
+    left: 0%;
+    height: 667px;
+    width: 375px;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 #any {
     top: 0%;
-    height: 1000px;
-    width: 1000px;
+    height: 667px;
+    width: 375px;
     position: absolute;
     background-color: rgba(255, 255, 255, 0);
 }
 
 .extra {
+    z-index: 2;
+    top: auto;
+    bottom: auto;
     font-size: 18px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
@@ -155,34 +160,30 @@ input[type=radio] {
 }
 
 #menu {
-    height: 125px;
+    z-index: 2;
+    top: auto;
+    bottom: auto;
 }
 
-#confirm {
+#confirm, #add_food, #edit_food, #add_sport {
+    z-index: 2;
+    top: auto;
+    bottom: auto;
     padding-top: 10px;
 }
 
-#add_food {
-    /* top: 35%; */
-    /* height: 230px; */
-    top: 25%;
-    height: 335px;
-    padding-top: 10px;
+#sport_time, #sport_search{
+    width: 200px;
 }
 
-#add-food-error {
-    top: 25%;
-    height: 305px;
-}
-
-#add-ok, #add-cancel, #delete-ok, #delete-cancel {
+#add-ok, #add-cancel, #delete-ok, #delete-cancel, #sport-ok, #sport-cancel, #edit-add-ok, #edit-add-cancel {
     margin-top: 5px;
     font-weight: bold;
     color: #FF8900;
     text-align: center;
 }
 
-#food_search {
+#food_search, #edit_food_search {
     margin-left: auto;
     margin-right: auto;
     width: 231px;
@@ -196,9 +197,20 @@ input[type=radio] {
     margin-right: auto;
 }
 
-#period-select {
+#edit_food_weight {
+    z-index: 1;
+    width: 230px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#period-select, #edit-period-select {
     height: 31px;
     width: 100px;
+}
+
+#add_food_error, #edit_food_error {
+    display: none;
 }
 
 .input-label {

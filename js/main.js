@@ -50,7 +50,7 @@ function refreshList() {
             document.getElementById('shadow').style.display = 'block';
             document.getElementsByClassName('extra')[0].style.display = 'block';
             document.getElementsByClassName('extra')[0].children[0].children[0].textContent = 
-                this.children[0].children[1].textContent
+                this.children[0].children[1].textContent;
         }
     }
 
@@ -63,18 +63,72 @@ function refreshList() {
             document.getElementById('confirm').style.display = 'none';
             document.getElementById('shadow').style.display = 'none';
             selected.remove();
-            refreshList() 
+            document.getElementsByClassName('head')[i].children[1].children[0].textContent = 
+                parseInt(document.getElementsByClassName('head')[i].children[1].children[0].textContent) -
+                parseInt(selected.children[1].children[0].textContent);
+            refreshList();
         }
         document.getElementById('delete-cancel').onclick = function() {
             document.getElementById('confirm').style.display = 'none';
             document.getElementById('shadow').style.display = 'none';
         } 
     }
+
+    // Изменить еду
+
+    document.getElementById('edit').onclick = function() {
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('shadow').style.display = 'block';
+        document.getElementById('edit_food').style.display = 'block';
+
+
+        document.getElementById('edit-add-ok').onclick = function() {
+            document.getElementById('edit_food_error').style.display = 'none';
+
+            var foodList = ['Банан', 'Гречневая каша', 'Куриное филе', 'Яблоко'];
+            if (foodList.indexOf(document.getElementById('edit_food_search').value) >= 0) {
+                if (document.getElementById('edit_food_weight').value > 0) {
+                    selected.children[0].children[1].textContent =
+                        document.getElementById('edit_food_search').value + 
+                        ' (' + document.getElementById('edit_food_weight').value + ' г)';
+                    
+                    selected.children[1].children[0].textContent =
+                        3 * parseInt(document.getElementById('edit_food_weight').value) + ' \u00A0';
+                    
+                    
+                    document.getElementById('edit_food_search').value = '';
+                    document.getElementById('edit_food_weight').value = '';
+                    refreshList();
+                    document.getElementById('shadow').style.display = 'none';
+                    document.getElementById('edit_food').style.display = 'none';
+                    document.getElementById('edit_food_error').style.display = 'none';
+                }
+                else {
+                    document.getElementById('edit_food_error').style.display = 'block';
+                    document.getElementById('edit_food_error').children[1].textContent = 'Вес должен быть больше 0';
+                }
+            }
+            else {
+                document.getElementById('edit_food_error').style.display = 'block';
+                document.getElementById('edit_food_error').children[1].textContent = 'Выберите существующий элемент';                
+            }
+        }
+
+        document.getElementById('edit-add-cancel').onclick = function() {
+            document.getElementById('edit_food_search').value = '';
+            document.getElementById('edit_food_weight').value = '';
+            document.getElementById('shadow').style.display = 'none';
+            document.getElementById('edit_food').style.display = 'none';
+            document.getElementById('edit_food_error').style.display = 'none';
+        }
+    }
+
+    kkal();
 }
 
 // Создание элемента
 
-function createItem(nameText, gramm) {
+function createItem(nameText, gramm, sport) {
     var item = document.createElement('div');
     item.className = 'row item';
 
@@ -87,7 +141,11 @@ function createItem(nameText, gramm) {
     col8.appendChild(space);
 
     var name = document.createElement('span');
-    name.textContent = nameText + ' (' + gramm + ' г)';
+    if (sport)
+        name.textContent = nameText + ' (' + gramm + ' мин.)';
+    else 
+        name.textContent = nameText + ' (' + gramm + ' г)';
+
     col8.appendChild(name);
 
     var col3 = document.createElement('div');
@@ -96,7 +154,11 @@ function createItem(nameText, gramm) {
 
     var energy = document.createElement('span');
     energy.className = 'float-right';
-    energy.textContent = 3 * parseInt(gramm) + ' \u00A0';
+    if (sport)
+        energy.textContent = -3 * parseInt(gramm) + ' \u00A0';
+    else
+        energy.textContent = 3 * parseInt(gramm) + ' \u00A0';
+
     col3.appendChild(energy);
 
     var col1 = document.createElement('div');
@@ -148,28 +210,77 @@ function page2() {
         closePlus();
         document.getElementById('shadow').style.display = 'block';
         document.getElementById('add_food').style.display = 'block';
-        document.getElementById('add-cancel').onclick = function() {
-            document.getElementById('shadow').style.display = 'none';
-            document.getElementById('add_food').style.display = 'none';
-        }
+
         document.getElementById('add-ok').onclick = function() {
+            document.getElementById('add_food_error').style.display = 'none';
+
             var periods = ['Завтрак', 'Обед', 'Ужин'];
             var foodList = ['Банан', 'Гречневая каша', 'Куриное филе', 'Яблоко'];
-            if (foodList.indexOf(document.getElementById('food_search').value) >= 0
-                && document.getElementById('food_weight').value > 0) {
+            if (foodList.indexOf(document.getElementById('food_search').value) >= 0) {
+                if (document.getElementById('food_weight').value > 0) {
                     var item = createItem(document.getElementById('food_search').value,
-                        document.getElementById('food_weight').value);
+                        document.getElementById('food_weight').value, false);
                     document.getElementsByClassName('list')
                         [periods.indexOf(document.getElementById('period-select').value)]
                         .appendChild(item);
+                    
+                    document.getElementById('food_search').value = '';
+                    document.getElementById('food_weight').value = '';
+                    document.getElementById('period-select').value = 'Завтрак';
+                    refreshList();
+                    document.getElementById('shadow').style.display = 'none';
+                    document.getElementById('add_food').style.display = 'none';
+                    document.getElementById('add_food_error').style.display = 'none';
+                }
+                else {
+                    document.getElementById('add_food_error').style.display = 'block';
+                    document.getElementById('add_food_error').children[1].textContent = 'Вес должен быть больше 0';
+                }
             }
+            else {
+                document.getElementById('add_food_error').style.display = 'block';
+                document.getElementById('add_food_error').children[1].textContent = 'Выберите существующий элемент';                
+            }
+        }
 
+        document.getElementById('add-cancel').onclick = function() {
             document.getElementById('food_search').value = '';
             document.getElementById('food_weight').value = '';
             document.getElementById('period-select').value = 'Завтрак';
-            refreshList();
             document.getElementById('shadow').style.display = 'none';
             document.getElementById('add_food').style.display = 'none';
+            document.getElementById('add_food_error').style.display = 'none';
+        }
+    }
+
+    // Добавить тренировку
+
+    document.getElementById('sport').onclick = function() {
+        closePlus();
+        document.getElementById('shadow').style.display = 'block';
+        document.getElementById('add_sport').style.display = 'block';
+
+        document.getElementById('sport-ok').onclick = function() {
+            var sportList = ['Бег', 'Большой теннис', 'Волейбол', 'Футбол'];
+            if (sportList.indexOf(document.getElementById('sport_search').value) >= 0
+                && document.getElementById('sport_time').value > 0) {
+                    var item = createItem(document.getElementById('sport_search').value,
+                        document.getElementById('sport_time').value, true);
+                    document.getElementsByClassName('list')[3].appendChild(item);
+            }
+
+            document.getElementById('sport_search').value = '';
+            document.getElementById('sport_time').value = '';
+            refreshList();
+            document.getElementById('shadow').style.display = 'none';
+            document.getElementById('add_sport').style.display = 'none';
+        }
+
+        document.getElementById('sport-cancel').onclick = function() {
+            document.getElementById('sport_search').value = '';
+            document.getElementById('sport_time').value = '';
+            document.getElementById('shadow').style.display = 'none';
+            document.getElementById('add_sport').style.display = 'none';
         }
     }
 
@@ -207,7 +318,31 @@ function page2() {
         document.getElementById('shadow').style.display = 'none';
         for (var i = 0; i < document.getElementsByClassName('extra').length; i++)
             document.getElementsByClassName('extra')[i].style.display = 'none';
+        
+        document.getElementById('food_search').value = '';
+        document.getElementById('food_weight').value = '';
+        document.getElementById('period-select').value = 'Завтрак';
+        document.getElementById('add_food_error').style.display = 'none';
     }
+}
+
+// Подсчет калорий
+
+function kkal() {
+    var normal = parseInt(document.getElementById('stableweight').textContent.slice(18));
+    var get = 0;
+    var spent = 0;
+
+    for (var i = 0; i < document.getElementsByClassName('period').length - 1; i++) {
+        get += parseInt(document.getElementsByClassName('head')[i].children[1].children[0].textContent);
+    }
+    spent = parseInt(document.getElementsByClassName('head')[3].children[1].children[0].textContent);
+    left = normal - get - spent;
+
+    document.getElementsByClassName('totals')[0].textContent = normal;
+    document.getElementsByClassName('totals')[1].textContent = get;
+    document.getElementsByClassName('totals')[2].textContent = -1 * spent;
+    document.getElementsByClassName('totals')[3].textContent = left;
 }
 
 function calculate()
@@ -269,8 +404,10 @@ function calculate()
     var kKal = (10*weight + 6.25*height - 5*age + genderIndex)*sportIndex
     document.getElementById('result').display = 'block'
     document.getElementById('bodymass').textContent = `Индекс массы тела: ${mass.toFixed(1)} ${fat}`
-    document.getElementById('stableweight').textContent = `Стабильного веса: ${Math.round(kKal)}кКал`
-    document.getElementById('weightloss').textContent = `Похудения: ${Math.round(kKal - kKal/5)}кКал`
-    document.getElementById('fastweightloss').textContent = `Быстрого похудения: ${Math.round(kKal - kKal/2.5)}кКал`
+    document.getElementById('stableweight').textContent = `Стабильного веса: ${Math.round(kKal)} кКал`
+    document.getElementById('weightloss').textContent = `Похудения: ${Math.round(kKal - kKal/5)} кКал`
+    document.getElementById('fastweightloss').textContent = `Быстрого похудения: ${Math.round(kKal - kKal/2.5)} кКал`
     document.getElementById('result').style.display = 'block'
+
+    refreshList();
 }
