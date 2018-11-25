@@ -40,9 +40,40 @@ function refreshList() {
         document.getElementById('empty').style.display = 'block';
     else
         document.getElementById('empty').style.display = 'none';
+
+    // При клике на элементы списка появление окна взаимодейсствия (Редактировать/Удалить)
+
+    var selected;
+    for (var i = 0; i < document.getElementsByClassName('item').length; i++) {
+        document.getElementsByClassName('item')[i].onclick = function() {
+            selected = this;
+            document.getElementById('shadow').style.display = 'block';
+            document.getElementsByClassName('extra')[0].style.display = 'block';
+            document.getElementsByClassName('extra')[0].children[0].children[0].textContent = 
+                this.children[0].children[1].textContent
+        }
+    }
+
+    // Удалить элемент
+
+    document.getElementById('delete').onclick = function() {
+        document.getElementById('menu').style.display = 'none';
+        document.getElementById('confirm').style.display = 'block';
+        document.getElementById('delete-ok').onclick = function() {
+            document.getElementById('confirm').style.display = 'none';
+            document.getElementById('shadow').style.display = 'none';
+            selected.remove();
+            refreshList() 
+        }
+        document.getElementById('delete-cancel').onclick = function() {
+            document.getElementById('confirm').style.display = 'none';
+            document.getElementById('shadow').style.display = 'none';
+        } 
+    }
 }
 
 // Создание элемента
+
 function createItem(nameText, gramm) {
     var item = document.createElement('div');
     item.className = 'row item';
@@ -52,7 +83,7 @@ function createItem(nameText, gramm) {
     item.appendChild(col8);
 
     var space = document.createElement('span');
-    space.textContent = '&nbsp&nbsp&nbsp&nbsp';
+    space.textContent = '\u00A0\u00A0\u00A0\u00A0\u00A0';
     col8.appendChild(space);
 
     var name = document.createElement('span');
@@ -65,7 +96,7 @@ function createItem(nameText, gramm) {
 
     var energy = document.createElement('span');
     energy.className = 'float-right';
-    energy.textContent = 3 * parseInt(gramm);
+    energy.textContent = 3 * parseInt(gramm) + ' \u00A0';
     col3.appendChild(energy);
 
     var col1 = document.createElement('div');
@@ -113,32 +144,31 @@ function page2() {
     
     // Добавить еду
 
-    // document.getElementById('food').onclick = function() {
-    //     closePlus();
-    //     document.getElementById('shadow').style.display = 'block';
-    //     document.getElementById('add_food').style.display = 'block';
-    //     document.getElementById('add-cancel').onclick = function() {
-    //         document.getElementById('shadow').style.display = 'none';
-    //         document.getElementById('add_food').style.display = 'none';
-    //     }
-    //     document.getElementById('add-ok').onclick = function() {
-    //         var period = ['Завтрак', 'Обед', 'Ужин'];
+    document.getElementById('food').onclick = function() {
+        closePlus();
+        document.getElementById('shadow').style.display = 'block';
+        document.getElementById('add_food').style.display = 'block';
+        document.getElementById('add-cancel').onclick = function() {
+            document.getElementById('shadow').style.display = 'none';
+            document.getElementById('add_food').style.display = 'none';
+        }
+        document.getElementById('add-ok').onclick = function() {
+            var periods = ['Завтрак', 'Обед', 'Ужин'];
+            var foodList = ['Банан', 'Гречневая каша', 'Куриное филе', 'Яблоко'];
+            if (foodList.indexOf(document.getElementById('food_search').value) >= 0
+                && document.getElementById('food_weight').value > 0) {
+                    var item = createItem(document.getElementById('food_search').value,
+                        document.getElementById('food_weight').value);
+                    document.getElementsByClassName('list')
+                        [periods.indexOf(document.getElementById('period-select').value)]
+                        .appendChild(item);
+            }
 
-    //         if (document.getElementById('food_search').value in 
-    //             ['Банан', 'Гречневая каша', 'Куриное филе', 'Яблоко']
-    //             && document.getElementById('food_weight').value > 0) {
-    //                 var item = createItem(document.getElementById('food_search').value,
-    //                     document.getElementById('food_weight').value);
-    //                 document.getElementsByClassName('list')
-    //                     [time.indexOf(document.getElementById(document.getElementById('period-select').value))]
-    //                     .appendChild(item);
-    //         }
-
-    //         refreshList();
-    //         document.getElementById('shadow').style.display = 'none';
-    //         document.getElementById('add_food').style.display = 'none';
-    //     }
-    // }
+            refreshList();
+            document.getElementById('shadow').style.display = 'none';
+            document.getElementById('add_food').style.display = 'none';
+        }
+    }
 
     // Скрыть раскрыть список по клику на заголовок (Завтрак, Обед, ...)
 
@@ -174,36 +204,6 @@ function page2() {
         document.getElementById('shadow').style.display = 'none';
         for (var i = 0; i < document.getElementsByClassName('extra').length; i++)
             document.getElementsByClassName('extra')[i].style.display = 'none';
-    }
-
-    // При клике на элементы списка появление окна взаимодейсствия (Редактировать/Удалить)
-
-    var selected;
-    for (var i = 0; i < document.getElementsByClassName('item').length; i++) {
-        document.getElementsByClassName('item')[i].onclick = function() {
-            selected = this;
-            document.getElementById('shadow').style.display = 'block';
-            document.getElementsByClassName('extra')[0].style.display = 'block';
-            document.getElementsByClassName('extra')[0].children[0].children[0].textContent = 
-                this.children[0].children[1].textContent
-        }
-    }
-
-    // Удалить элемент
-
-    document.getElementById('delete').onclick = function() {
-        document.getElementById('menu').style.display = 'none';
-        document.getElementById('confirm').style.display = 'block';
-        document.getElementById('delete-ok').onclick = function() {
-            document.getElementById('confirm').style.display = 'none';
-            document.getElementById('shadow').style.display = 'none';
-            selected.remove();
-            refreshList() 
-        }
-        document.getElementById('delete-cancel').onclick = function() {
-            document.getElementById('confirm').style.display = 'none';
-            document.getElementById('shadow').style.display = 'none';
-        } 
     }
 }
 
