@@ -108,11 +108,11 @@ input[type=radio] {
 }
 
 #page1 {
-    display: block;
+    display: none;
 }
 
 #page2 {
-    display: none;
+    display: block;
 }
 
 .header {
@@ -165,6 +165,7 @@ input[type=radio] {
 
 .option {
     font-weight: bold;
+    color: #FF8900;
 }
 
 .button {
@@ -241,4 +242,26 @@ input[type=radio] {
     font-size: 16px;
     position: absolute;
     display: none;
+}
+
+#empty {
+    display: none;
+}
+
+#empty-list {
+    position: absolute;
+    font-size: 18px;
+    color: #00000070;
+    top: 50%;
+}
+
+#empty-hint {
+    position: absolute;
+    font-size: 18px;
+    color: #00000070;
+    top: 91.5%;
+}
+
+.glyphicon-arrow-right {
+    font-size: 16px;
 }
