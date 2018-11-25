@@ -206,3 +206,34 @@ function page2() {
         } 
     }
 }
+
+function calculate()
+{
+
+    var height = parseInt(document.getElementById('height').value)
+    var weight = parseInt(document.getElementById('weight').value)
+    var age = parseInt(document.getElementById('age').value)
+    if(isNaN(height)|| isNaN(weight)|| isNaN(age)) 
+    {
+        document.getElementById('height').style.borderBottom = isNaN(height)? '2px solid red' : '1px solid #ccc'
+        document.getElementById('weight').style.borderBottom = isNaN(weight)? '2px solid red' : '1px solid #ccc'
+        document.getElementById('age').style.borderBottom = isNaN(age)? '2px solid red' : '1px solid #ccc'
+        return
+    }
+
+
+    var genderIndex = document.getElementById('male').checked == true ? 5 : -163
+    var sport = document.getElementById('physical-activity')
+    var sportIndex = sport[sport.selectedIndex].value
+    var mass = (weight/((height*height)/10000))
+
+    var fat = mass < 22.5? '(норма)': mass < 30 ? '(ожирение: 1 стадия)' : '(ожирение: 2 стадия)'  
+
+    var kKal = (10*weight + 6.25*height - 5*age + genderIndex)*sportIndex
+    document.getElementById('result').display = 'block'
+    document.getElementById('bodymass').textContent = `Индекс массы тела: ${mass.toFixed(1)} ${fat}`
+    document.getElementById('stableweight').textContent = `Стабильного веса: ${Math.round(kKal)}кКал`
+    document.getElementById('weightloss').textContent = `Похудения: ${Math.round(kKal - kKal/5)}кКал`
+    document.getElementById('fastweightloss').textContent = `Быстрого похудения: ${Math.round(kKal - kKal/2.5)}кКал`
+    document.getElementById('result').style.display = 'block'
+}

@@ -15,7 +15,7 @@ body {
 
 span {
     font-family: Arial;
-    align-content: center;
+    /*align-content: center;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -56,6 +56,10 @@ footer {
     width: 100%;
     height: 80px;
     background-color: #DC0055;
+}
+
+select {
+    width: 285px;
 }
 
 
@@ -224,6 +228,7 @@ input[type=radio] {
     background-position: center;
     background-size: cover;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.301);
+
 }
 
 .option_label {
@@ -235,6 +240,10 @@ input[type=radio] {
 
 .navigator {
     position: absolute;
+}
+
+#result {
+    display: none;
 }
 
 #add {
