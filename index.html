@@ -106,6 +106,7 @@
         </div>
         
         <div class='container' id='page2'>  
+            <div id='any'></div>
             <div class='container'>
                 <div class='row'>
                     <div class='col-3 border-right'>
@@ -225,11 +226,11 @@
             <div class='circle' id='add'><div id='plus'>+</div></div>
         </div>
 
-        <div class='shadow'></div>
+        <div id='shadow'></div>
 
-        <div class='container extra w-75'>
+        <div class='container extra w-75' id='menu'>
             <div class='row border-bottom'>
-                <span>Гречка</span>
+                <span></span>
             </div>
             <div class='row option' id='edit'>
                 <span>Редактировать</span>
@@ -239,26 +240,62 @@
             </div>
         </div>
 
-        <div class='container extra w-75' id='add_food'>
+        <div class='container extra w-75' id='confirm'>
+            <span><b>Внимание!</b></span><br>
+            <span>Вы действительно хотите удалить запись?</span>
             <div class='row'>
-                <input id='food_search' list="foods" name="foods" placeholder='Введите название'>
+                <div class='col-4'></div>
+                <div class='col-4' id='delete-cancel'>
+                    <span>Отмена</span>
+                </div>
+                <div class='col-4' id='delete-ok'>
+                    <span>OK</span>
+                </div>
+            </div>
+        </div>
+
+        <div class='container extra w-75' id='add_food'>
+            <span><b>Добавление еды</b></span>
+            <div class='row'>
+                <div class='col-12'>
+                    <span>&nbsp</span>
+                    <span class='input-label'>Название</span>
+                </div>
+                <input id='food_search' list="foods" name="foods" placeholder='Выберите название'>
                 <datalist id="foods">
-                    <option value="Яблоко">
-                    <option value="Гречневая каша">
                     <option value="Банан">
-                    <option value="Куриное филе">                       
+                    <option value="Гречневая каша">
+                    <option value="Куриное филе">        
+                    <option value="Яблоко">               
                 </datalist>
             </div>
             <div class='row'>
-                <span id='weight_label'>Вес</span>
+                <div class='col-6'>
+                    <span>&nbsp</span>
+                    <span class='input-label'>Вес</span>
+                </div>
+                <div class='col-6'>
+                    <span class='input-label'>Прием прищи</span>
+                </div>
+                <div class='col-6'>
+                    <span>&nbsp</span>
+                    <input id='food_weight' type='number' min='0' max='5000' step='10' placeholder="Вес (г)">
+                </div>
+                <div class='col-6'>
+                    <select id='period-select'>
+                        <option>Завтрак</option>
+                        <option>Обед</option>
+                        <option>Ужин</option>
+                    </select>
+                </div>
             </div>
             <div class='row'>
-                
-                <input id='food_weight' type='number' min='0' max='5000' step='10' placeholder="Вес (г)">
-            </div>
-            <div class='row'>
-                <div class='button'>
-                    <span>Добавить</span>
+                <div class='col-4'></div>
+                <div class='col-4' id='add-cancel'>
+                    <span>Отмена</span>
+                </div>
+                <div class='col-4' id='add-ok'>
+                    <span>OK</span>
                 </div>
             </div>
         </div>

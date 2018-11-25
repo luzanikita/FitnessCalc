@@ -123,7 +123,7 @@ input[type=radio] {
     font-size: 18px;
 }
 
-.shadow {
+#shadow {
     display: none;
     top: 0%;
     height: 1000px;
@@ -132,35 +132,67 @@ input[type=radio] {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+#any {
+    top: 0%;
+    height: 1000px;
+    width: 1000px;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0);
+}
+
 .extra {
     font-size: 18px;
     border-radius: 3px;
     background-color: rgb(255, 255, 255);
-    height: 125px;
     position: absolute;
     left: 12.5%;
     top: 40%;
     display: none;
 }
 
+#menu {
+    height: 125px;
+}
+
+#confirm {
+    padding-top: 10px;
+}
+
+#add_food {
+    top: 35%;
+    height: 230px;
+    padding-top: 10px;
+}
+
+#add-ok, #add-cancel, #delete-ok, #delete-cancel {
+    margin-top: 5px;
+    font-weight: bold;
+    color: #FF8900;
+    text-align: center;
+}
+
 #food_search {
     margin-left: auto;
     margin-right: auto;
-    width: 200px;
+    width: 231px;
     z-index: 1;
 }
 
 #food_weight {
     z-index: 1;
-    width: 115px;
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#weight_label {
-    z-index: 1;
-    /* margin-left: 45px;
-    margin-right: 10px; */
+#period-select {
+    height: 31px;
+    width: 100px;
+}
+
+.input-label {
+    font-size: 12px;
+    color: #000000;
 }
 
 .option {
