@@ -164,6 +164,9 @@ function page2() {
                         .appendChild(item);
             }
 
+            document.getElementById('food_search').value = '';
+            document.getElementById('food_weight').value = '';
+            document.getElementById('period-select').value = 'Завтрак';
             refreshList();
             document.getElementById('shadow').style.display = 'none';
             document.getElementById('add_food').style.display = 'none';

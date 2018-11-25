@@ -112,11 +112,11 @@ input[type=radio] {
 }
 
 #page1 {
-    display: none;
+    display: block;
 }
 
 #page2 {
-    display: block;
+    display: none;
 }
 
 .header {
@@ -163,9 +163,16 @@ input[type=radio] {
 }
 
 #add_food {
-    top: 35%;
-    height: 230px;
+    /* top: 35%; */
+    /* height: 230px; */
+    top: 25%;
+    height: 335px;
     padding-top: 10px;
+}
+
+#add-food-error {
+    top: 25%;
+    height: 305px;
 }
 
 #add-ok, #add-cancel, #delete-ok, #delete-cancel {
