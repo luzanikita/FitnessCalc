@@ -95,12 +95,46 @@ function calculate()
 
 
     var genderIndex = document.getElementById('male').checked == true ? 5 : -163
+    var gender = genderIndex == 5?'male':'female'
     var sport = document.getElementById('physical-activity')
     var sportIndex = sport[sport.selectedIndex].value
     var mass = (weight/((height*height)/10000))
 
-    var fat = mass < 22.5? '(норма)': mass < 30 ? '(ожирение: 1 стадия)' : '(ожирение: 2 стадия)'  
+    if(age <= 25)
+    {
+        var obj = {
+           '(анорексия)' : 17.5,
+           '(дефицит массы тела)' : 19.5,
+           '(норма)' : 22.9,
+           '(избыток веса)' : 27.4,
+           '(ожирение I степени)' : 29.9,
+           '(ожирение II степени)' : 34.9,
+           '(ожирение III степени)' : 39.9,
+           '(ожирение IV степени)' : 1000
+        }
+    }
+    else
+    {
+        var obj = {
+           '(анорексия)' : 17.5,
+           '(дефицит массы тела)' : 20.0,
+           '(норма)' : 25.9,
+           '(избыток веса)' : 27.9,
+           '(ожирение I степени)' : 30.9,
+           '(ожирение II степени)' : 35.9,
+           '(ожирение III степени)' : 40.9,
+           '(ожирение IV степени)' : 1000
+        }  
+    }
 
+    for(var key in obj)
+    {
+        if(mass < obj[key])
+        {
+            var fat = key
+            break
+        }
+    }
     var kKal = (10*weight + 6.25*height - 5*age + genderIndex)*sportIndex
     document.getElementById('result').display = 'block'
     document.getElementById('bodymass').textContent = `Индекс массы тела: ${mass.toFixed(1)} ${fat}`
